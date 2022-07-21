@@ -7,10 +7,15 @@ package vista.ventanas;
 
 import Utilerias.FondoImagen;
 import Utilerias.GUITools;
+import controlador.BajasController;
+import controlador.CambiarController;
+import javax.swing.JOptionPane;
 import vista.alumnos.Alta;
 import vista.alumnos.Baja;
+import vista.alumnos.Busqueda;
 import vista.alumnos.Cambio;
 import vista.alumnos.Consulta;
+import vista.app;
 
 /**
  *
@@ -157,13 +162,25 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAltasActionPerformed
 
     private void btnBajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajasActionPerformed
+        Busqueda b = new Busqueda(this, true);
+        b.setVisible(true);
+        
         Baja baja = new Baja();
         GUITools.panelIntoPanel(this.pnlContainer, baja);
+        
+        BajasController.preEliminar(app.indice,baja.txtDatosAlumno);
+
     }//GEN-LAST:event_btnBajasActionPerformed
 
     private void btnCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiosActionPerformed
+        Busqueda b = new Busqueda(this, true);
+        b.setVisible(true);
+        b.setLocationRelativeTo(null);
+        
         Cambio cambio = new Cambio();
         GUITools.panelIntoPanel(this.pnlContainer, cambio);
+        
+        CambiarController.preCambioLlenado(app.indice, cambio.txtNombre,cambio.spnEdad,cambio.txtNumeroDeCuenta,cambio.txtCorreo,cambio.txtCalle,cambio.txtCodigoPostal,cambio.txtNumero);
     }//GEN-LAST:event_btnCambiosActionPerformed
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed

@@ -5,6 +5,9 @@
  */
 package vista;
 
+import Utilerias.Archivos;
+import java.util.ArrayList;
+import modelo.Alumno;
 import vista.ventanas.Main;
 
 /**
@@ -12,8 +15,12 @@ import vista.ventanas.Main;
  * @author eduar
  */
 public class app {
+    public static ArrayList<Alumno> alumnos =  Archivos.leerArchivo("alumnos.dat");
+    public static int indice = -1;
+    
+    public static Main m  =  new Main();
     public static void main(String[] args) {
-        Main m  =  new Main();
+        
         m.setVisible(true);
         m.setLocationRelativeTo(null);
     }
